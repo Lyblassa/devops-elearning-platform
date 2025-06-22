@@ -2,7 +2,7 @@
   <form class="space-y-6" @submit.prevent="onSubmit">
     <!-- Nom complet -->
     <div>
-      <label for="username" class="block text-sm font-medium text-gray-700">Nom complet</label>
+      <label for="username" class="block text-sm font-medium text-gray-300">Nom complet</label>
       <div class="relative mt-1">
         <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
           <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -15,14 +15,14 @@
           type="text"
           required
           placeholder="Votre nom complet"
-          class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+          class="w-full pl-10 pr-4 py-2 border border-gray-600 bg-gray-800 text-white rounded-md focus:ring-indigo-500 focus:border-indigo-500"
         />
       </div>
     </div>
 
     <!-- Email -->
     <div>
-      <label for="email" class="block text-sm font-medium text-gray-700">Adresse email</label>
+      <label for="email" class="block text-sm font-medium text-gray-300">Adresse email</label>
       <div class="relative mt-1">
         <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
           <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -36,14 +36,14 @@
           type="email"
           required
           placeholder="votre@email.com"
-          class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+          class="w-full pl-10 pr-4 py-2 border border-gray-600 bg-gray-800 text-white rounded-md focus:ring-indigo-500 focus:border-indigo-500"
         />
       </div>
     </div>
 
     <!-- Mot de passe -->
     <div>
-      <label for="password" class="block text-sm font-medium text-gray-700">Mot de passe</label>
+      <label for="password" class="block text-sm font-medium text-gray-300">Mot de passe</label>
       <div class="relative mt-1">
         <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
           <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -56,9 +56,9 @@
           v-model="form.password"
           required
           placeholder="••••••••"
-          class="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+          class="w-full pl-10 pr-10 py-2 border border-gray-600 bg-gray-800 text-white rounded-md focus:ring-indigo-500 focus:border-indigo-500"
         />
-        <button type="button" @click="showPassword = !showPassword" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500">
+        <button type="button" @click="showPassword = !showPassword" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400">
           <svg v-if="showPassword" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M13.875 18.825A10.05 10.05 0 0112 19c-5.523 0-10-4.477-10-10a9.969 9.969 0 013.342-7.478m1.636 1.636A9.96 9.96 0 0121 9c0 5.523-4.477 10-10 10a9.96 9.96 0 01-7.478-3.342" />
             <path d="M4 4l16 16" />
@@ -72,18 +72,18 @@
     </div>
 
     <!-- Info vérif -->
-    <div class="text-sm text-gray-600">
+    <div class="text-sm text-gray-400">
       Un code de vérification vous sera envoyé après l’inscription.
     </div>
 
     <!-- CGU -->
     <div class="flex items-start">
-      <input id="terms" type="checkbox" class="h-4 w-4 mt-1 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
-      <label for="terms" class="ml-2 text-sm text-gray-600">
+      <input id="terms" type="checkbox" class="h-4 w-4 mt-1 text-indigo-600 border-gray-600 bg-gray-900 rounded focus:ring-indigo-500" />
+      <label for="terms" class="ml-2 text-sm text-gray-400">
         J'accepte les
-        <a href="#" class="text-blue-600 hover:underline">conditions d'utilisation</a>
+        <a href="#" class="text-blue-400 hover:underline">conditions d'utilisation</a>
         et la
-        <a href="#" class="text-blue-600 hover:underline">politique de confidentialité</a>.
+        <a href="#" class="text-blue-400 hover:underline">politique de confidentialité</a>.
       </label>
     </div>
 
@@ -93,14 +93,11 @@
         Créer mon compte
       </button>
     </div>
-
-
   </form>
 </template>
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import SocialAuthButtons from './SocialAuthButtons.vue'
 
 interface RegisterForm {
   username: string;

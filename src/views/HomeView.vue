@@ -1,0 +1,162 @@
+<template>
+  <div
+    class="min-h-screen w-full bg-cover bg-center flex flex-col items-center justify-between px-4 pt-6 text-white"
+    :style="{ backgroundImage: `url('/images/planviolet.png')` }"
+  >
+    <!-- Top bar -->
+    <div class="w-full flex justify-between items-center">
+      <!-- Logo -->
+      <img
+        src="/images/logobecomedevops.svg"
+        alt="Logo"
+        class="h-16 sm:h-20 md:h-24 lg:h-50 w-auto ml-2"
+      />
+
+
+
+      <!-- Connexion / Inscription bouton -->
+      <button
+        @click="goToAuth"
+        class="text-white text-sm bg-white/10 hover:bg-white/20 backdrop-blur-md px-4 py-2 rounded-full transition duration-300"
+      >
+        Connexion / Inscription
+      </button>
+    </div>
+
+    <!-- Center content -->
+    <div
+      class="flex flex-col items-center text-center gap-6 max-w-3xl mt-10 animate-fade-in"
+    >
+      <!-- Nouveautés Badge avec animation de zoom -->
+      <img
+        src="/images/nouveautes.svg"
+        alt="Nouveautes"
+        class="w-auto h-8 md:h-10 animate-zoom-bounce"
+      />
+
+      <!-- Main Heading -->
+      <h1
+        class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight animate-zoom-in"
+      >
+        Learn in demand <br />
+        skills online
+      </h1>
+
+      <!-- Subtitle -->
+      <p
+        class="text-sm sm:text-base md:text-lg font-light font-[\'Questrial\'] text-white/70"
+      >
+        Premium courses from Premium specialists of Top companies.
+      </p>
+
+      <!-- Explore button -->
+      <button
+        class="bg-gradient-to-b from-white/80 to-white text-black px-8 py-4 rounded-full font-semibold text-base flex items-center gap-3 shadow-lg hover:scale-105 transition"
+      >
+        Explore courses
+        <span class="text-2xl">&rarr;</span>
+      </button>
+
+      <!-- Student Avatars and Count -->
+      <div class="flex flex-col items-center gap-2 mt-6">
+        <div class="flex -space-x-3">
+          <div
+            v-for="n in 4"
+            :key="n"
+            class="w-10 h-10 rounded-full bg-white/20 border border-white"
+          ></div>
+        </div>
+        <p class="text-xs text-white/80">Over 1500+ students</p>
+      </div>
+    </div>
+  </div>
+  <!-- Anneau tournant -->
+  <!-- Anneau tournant -->
+  <div class="mt-10 flex justify-center perspective">
+    <img
+      src="/images/anneau.svg"
+      alt="anneau"
+      class="w-24 md:w-32 lg:w-40 animate-rotate-3d"
+    />
+  </div>
+
+
+</template>
+
+<script setup>
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const goToAuth = () => {
+  router.push('/auth')
+}
+</script>
+
+<style scoped>
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoom-bounce {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
+.animate-zoom-in {
+  animation: zoom-in 1s ease-out 0.2s both;
+}
+
+.animate-zoom-bounce {
+  animation: zoom-bounce 1s ease-out 0.3s both;
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+@keyframes rotate-y {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.animate-rotate-3d {
+  animation: rotate-y 5s linear infinite;
+  transform-style: preserve-3d;
+}
+
+
+</style>

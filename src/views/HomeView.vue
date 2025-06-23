@@ -31,8 +31,9 @@
       <img
         src="/images/nouveautes.svg"
         alt="Nouveautes"
-        class="w-auto h-8 md:h-10 animate-zoom-bounce"
+        class="w-auto h-8 md:h-10 animate-zoom-bounce transition duration-300 hover:backdrop-blur-md hover:brightness-125 cursor-pointer"
       />
+
 
       <!-- Main Heading -->
       <h1
@@ -70,15 +71,17 @@
       </div>
     </div>
   </div>
-  <!-- Anneau tournant -->
-  <!-- Anneau tournant -->
-  <div class="mt-10 flex justify-center perspective">
+
+  <!-- Anneau flottant -->
+  <div class="mt-10 flex justify-center">
     <img
       src="/images/anneau.svg"
       alt="anneau"
-      class="w-24 md:w-32 lg:w-40 animate-rotate-3d"
+      class="w-[450px] md:w-[600px] lg:w-[1000px] animate-appear-breathe"
     />
+
   </div>
+
 
 
 </template>
@@ -140,23 +143,33 @@ const goToAuth = () => {
   animation: zoom-bounce 1s ease-out 0.3s both;
 }
 
-.perspective {
-  perspective: 1000px;
-}
-
-@keyframes rotate-y {
+/*animation anneau*/
+@keyframes appear-breathe {
   0% {
-    transform: rotateY(0deg);
+    opacity: 0;
+    transform: scale(0.7) translateY(30px);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.1) translateY(-5px);
   }
   100% {
-    transform: rotateY(360deg);
+    transform: scale(1) translateY(0);
   }
 }
 
-.animate-rotate-3d {
-  animation: rotate-y 5s linear infinite;
-  transform-style: preserve-3d;
+.animate-appear-breathe {
+  animation: appear-breathe 2s ease-out forwards,
+  breathe-loop 3s ease-in-out 2s infinite;
 }
 
+@keyframes breathe-loop {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
 
 </style>

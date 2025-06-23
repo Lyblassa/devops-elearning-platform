@@ -7,12 +7,10 @@
     <div class="w-full flex justify-between items-center">
       <!-- Logo -->
       <img
-        src="/images/logobecomedevops.svg"
+        src="/images/logo2.svg"
         alt="Logo"
         class="h-16 sm:h-20 md:h-24 lg:h-50 w-auto ml-2"
       />
-
-
 
       <!-- Connexion / Inscription bouton -->
       <button
@@ -34,7 +32,6 @@
         class="w-auto h-8 md:h-10 animate-zoom-bounce transition duration-300 hover:backdrop-blur-md hover:brightness-125 cursor-pointer"
       />
 
-
       <!-- Main Heading -->
       <h1
         class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight animate-zoom-in"
@@ -52,11 +49,13 @@
 
       <!-- Explore button -->
       <button
+        @click="scrollToCategories"
         class="bg-gradient-to-b from-white/80 to-white text-black px-8 py-4 rounded-full font-semibold text-base flex items-center gap-3 shadow-lg hover:scale-105 transition"
       >
         Explore courses
         <span class="text-2xl">&rarr;</span>
       </button>
+
 
       <!-- Student Avatars and Count -->
       <div class="flex flex-col items-center gap-2 mt-6">
@@ -82,16 +81,28 @@
 
   </div>
 
+  <!-- SECTION DES CATÉGORIES DE COURS -->
+  <CategoriesSection />
+
 
 
 </template>
 
 <script setup>
 import { useRouter } from 'vue-router'
+import CategoriesSection from '../components/courses/CategoriesSection.vue'
+
 const router = useRouter()
 const goToAuth = () => {
   router.push('/auth')
 }
+
+/*animation scroll cours*/
+const scrollToCategories = () => {
+  const section = document.getElementById('categories')
+  section?.scrollIntoView({ behavior: 'smooth' })
+}
+
 </script>
 
 <style scoped>

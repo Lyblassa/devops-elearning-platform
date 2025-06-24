@@ -85,7 +85,6 @@
   <CategoriesSection />
 
 
-
 </template>
 
 <script setup>

@@ -1,6 +1,7 @@
 <template>
   <div
-    class="relative group p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md transition-transform duration-300 hover:scale-[1.03] hover:shadow-[0_0_25px_3px] hover:shadow-[var(--glow-color)] animate-fade-slide"
+    class="relative group category-glow p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md transition-transform duration-300 hover:scale-[1.03]
+ animate-fade-slide"
     :style="{ '--glow-color': glowColor }"
   >
 
@@ -47,6 +48,34 @@ transform: translateY(0);
 
 .animate-fade-slide {
 animation: fade-slide 0.8s ease-out both;
+}
+
+/*effet lumiere*/
+.category-glow {
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+}
+
+.category-glow::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  border-radius: 1.5rem;
+  background: radial-gradient(circle, var(--glow-color) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  filter: blur(30px);
+  z-index: -1;
+  transform: scale(0.95);
+}
+
+.category-glow:hover::before {
+  opacity: 0.8;
+  transform: scale(1);
 }
 
 </style>

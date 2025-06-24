@@ -90,6 +90,17 @@
   <!-- SECTION DES MENTORS -->
   <MentorsSection />
 
+  <!-- SECTION DE CERTIFICATIONS -->
+  <CertificationSection />
+
+  <!-- SECTION DE PARALLAX SROLLER -->
+  <ParallaxScroller />
+
+
+
+
+
+
 
 </template>
 
@@ -98,6 +109,9 @@ import { useRouter } from 'vue-router'
 import CategoriesSection from '../components/courses/CategoriesSection.vue'
 import ToolsScroll from '../components/tools/ToolsScroll.vue'
 import MentorsSection from '../components/mentors/MentorsSection.vue'
+import CertificationSection from '../components/certification/CertificationSection.vue'
+import ParallaxScroller from '../components/ParallaxScroller.vue'
+
 
 
 

@@ -81,8 +81,14 @@
 
   </div>
 
+  <!-- SECTION DES OUTILS DEVOPS -->
+  <ToolsScroll />
+
   <!-- SECTION DES CATÉGORIES DE COURS -->
   <CategoriesSection />
+
+  <!-- SECTION DES MENTORS -->
+  <MentorsSection />
 
 
 </template>
@@ -90,6 +96,10 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import CategoriesSection from '../components/courses/CategoriesSection.vue'
+import ToolsScroll from '../components/tools/ToolsScroll.vue'
+import MentorsSection from '../components/mentors/MentorsSection.vue'
+
+
 
 const router = useRouter()
 const goToAuth = () => {

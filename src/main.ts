@@ -10,6 +10,12 @@ import './assets/main.css'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
+import './assets/main.css'
+
+
+
+
+
 
 const app = createApp(App)
 

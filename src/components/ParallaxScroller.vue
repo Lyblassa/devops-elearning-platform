@@ -1,78 +1,77 @@
+<!-- components/ParallaxScroller.vue -->
 <template>
-  <section class="overflow-hidden bg-black py-10">
-    <div class="parallax-container">
-      <!-- Ligne 1 -->
+  <section class="overflow-hidden bg-black">
+    <div class="relative w-full whitespace-nowrap overflow-hidden">
       <motion.div
-        class="scroller"
-        :style="{ x: x1 }"
+        v-for="(line, index) in lines"
+        :key="index"
+        class="parallax-line"
+        :style="{ transform: `translateX(${linePositions[index]}%)` }"
       >
-        <span v-for="i in 4" :key="i">{{ text1 }} — </span>
-      </motion.div>
-
-      <!-- Ligne 2 -->
-      <motion.div
-        class="scroller reverse"
-        :style="{ x: x2 }"
-      >
-        <span v-for="i in 4" :key="i">{{ text2 }} — </span>
+        <span
+          v-for="i in repeatCount"
+          :key="i"
+          class="parallax-text"
+        >
+          {{ line.text }}
+        </span>
       </motion.div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { useMotionValue, animate } from '@motionone/vue'
+import { ref, onMounted } from 'vue'
+import { motion, useAnimationFrame } from 'motion-v'
 
-const text1 = ref('Cours premium')
-const text2 = ref('Mentors premium')
+defineOptions({ components: { motion } })
 
-// Valeurs animées
-const x1 = useMotionValue('0%')
-const x2 = useMotionValue('0%')
+const lines = [
+  { text: 'PREMIUM COURSES — PREMIUM MENTORS —', speed: -0.04 },
+  { text: 'PREMIUM MENTORS — PREMIUM COURSES —', speed: 0.04 }
+]
 
-let frame
+const repeatCount = 30
+const linePositions = ref(lines.map((_, i) => (i % 2 === 0 ? 0 : -50)))
+let lastScrollY = window.scrollY
+let inertia = 4 // 💡 boost initial
 
-function loopScroll() {
-  const speed1 = 0.2
-  const speed2 = -0.15
+useAnimationFrame(() => {
+  const scrollDelta = window.scrollY - lastScrollY
+  lastScrollY = window.scrollY
 
-  const currentX1 = parseFloat(x1.get())
-  const currentX2 = parseFloat(x2.get())
+  inertia += scrollDelta * 0.08
+  inertia *= 0.9
 
-  x1.set((currentX1 + speed1) % 100 + '%')
-  x2.set((currentX2 + speed2) % 100 + '%')
-
-  frame = requestAnimationFrame(loopScroll)
-}
-
-onMounted(() => {
-  loopScroll()
-})
-
-onBeforeUnmount(() => {
-  cancelAnimationFrame(frame)
+  lines.forEach((line, index) => {
+    linePositions.value[index] += line.speed * inertia
+    if (linePositions.value[index] < -100) linePositions.value[index] += 100
+    if (linePositions.value[index] > 100) linePositions.value[index] -= 100
+  })
 })
 </script>
 
 <style scoped>
-.parallax-container {
+.parallax-line {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.scroller {
-  white-space: nowrap;
-  font-size: 8vw;
-  font-weight: bold;
-  color: #333;
-  display: flex;
-  gap: 2rem;
   will-change: transform;
+  white-space: nowrap;
+  line-height: 1;
+
+  margin: 0;
+  padding: 0;
+  height: 7.5rem;
 }
 
-.reverse {
-  direction: rtl;
+.parallax-text {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 7.5rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: #333;
+  white-space: nowrap;
+  margin-right: 4rem;
+  line-height: 1;
 }
+
 </style>

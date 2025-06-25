@@ -99,6 +99,10 @@
   <!-- SECTION STATISTIQUES -->
   <StatistiquesSection />
 
+  <!-- SECTION FOOTER -->
+  <FooterSection />
+
+
 
 
 
@@ -116,6 +120,8 @@ import MentorsSection from '../components/mentors/MentorsSection.vue'
 import CertificationSection from '../components/certification/CertificationSection.vue'
 import ParallaxScroller from '../components/ParallaxScroller.vue'
 import StatistiquesSection from '../components/StatistiquesSection.vue'
+import FooterSection from '../components/FooterSection.vue'
+
 
 
 

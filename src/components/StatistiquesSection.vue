@@ -10,7 +10,7 @@
         data-aos-offset="250"
       >
         <img
-          src="/images/digistar.png"
+          src="/images/becomedevops.png"
           alt="Digistar"
           class="rounded-2xl object-cover w-full h-auto aspect-video lg:h-full lg:aspect-auto object-top"
         />
@@ -25,11 +25,9 @@
           data-aos-delay="200"
           data-aos-duration="900"
         >
-          <h2 class="text-4xl md:text-5xl font-bold font-satoshi mb-4 leading-snug text-center lg:text-left">
-            We are Digistar
-          </h2>
+
           <p class="text-white/80 font-questrial text-lg md:text-xl text-center lg:text-left">
-            Digistar is a center where modern professions such as programming,
+            BecomeDevOps is a center where modern professions such as programming,
             design and marketing are taught. A place, with the help of modern
             professions, improving human life and strengthens confidence in the
             future.

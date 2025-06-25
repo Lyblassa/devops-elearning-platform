@@ -1,9 +1,10 @@
 <template>
   <footer class="bg-black text-white pt-16 pb-6 px-4">
 
-  <div class="w-full max-w-none mx-auto grid grid-cols-1 md:grid-cols-4 gap-x-2 gap-y-6">
+    <div class="w-full max-w-none mx-auto grid grid-cols-1 md:grid-cols-4 md:gap-x-2 md:gap-y-0 gap-y-2">
 
-      <!-- Boîte 1 : Logo + Description élargie -->
+
+    <!-- Boîte 1 : Logo + Description élargie -->
       <div class="md:col-span-1 bg-neutral-900 p-6 rounded-2xl h-full flex flex-col">
         <img src="/images/logo2.svg" alt="Logo becomeDevops" class="h-[150px] w-auto mb-4 shrink-0" />
         <p class="text-sm text-white/80 leading-relaxed mb-4">

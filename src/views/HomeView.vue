@@ -96,8 +96,9 @@
   <!-- SECTION DE PARALLAX SROLLER -->
   <ParallaxScroller />
 
-  <!-- SECTION DE CERTIFICATIONS -->
-  <CertificationSection />
+  <!-- SECTION STATISTIQUES -->
+  <StatistiquesSection />
+
 
 
 
@@ -114,6 +115,8 @@ import ToolsScroll from '../components/tools/ToolsScroll.vue'
 import MentorsSection from '../components/mentors/MentorsSection.vue'
 import CertificationSection from '../components/certification/CertificationSection.vue'
 import ParallaxScroller from '../components/ParallaxScroller.vue'
+import StatistiquesSection from '../components/StatistiquesSection.vue'
+
 
 
 

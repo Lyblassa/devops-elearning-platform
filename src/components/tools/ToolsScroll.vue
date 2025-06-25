@@ -24,22 +24,6 @@
           />
         </template>
       </div>
-
-      <!-- Left arrow -->
-      <div
-        class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition cursor-pointer z-10"
-        @click="scrollLeft"
-      >
-        <span class="text-white text-xl">&larr;</span>
-      </div>
-
-      <!-- Right arrow -->
-      <div
-        class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition cursor-pointer z-10"
-        @click="scrollRight"
-      >
-        <span class="text-white text-xl">&rarr;</span>
-      </div>
     </div>
   </div>
 </template>
@@ -85,14 +69,6 @@ const pauseScroll = () => {
 
 const resumeScroll = () => {
   startAutoScroll()
-}
-
-const scrollLeft = () => {
-  scrollContainer.value.scrollBy({ left: -150, behavior: 'smooth' })
-}
-
-const scrollRight = () => {
-  scrollContainer.value.scrollBy({ left: 150, behavior: 'smooth' })
 }
 
 onMounted(() => {

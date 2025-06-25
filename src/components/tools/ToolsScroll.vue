@@ -12,9 +12,9 @@
       <!-- Scrollable Container -->
       <div
         ref="scrollContainer"
-        class="flex items-center gap-10 overflow-x-auto scrollbar-hide px-4 py-2"
+        class="flex items-center gap-10 overflow-x-auto scrollbar-hide px-4 py-2 whitespace-nowrap"
       >
-        <template v-for="i in 2">
+        <template v-for="i in 3">
           <img
             v-for="(logo, index) in logos"
             :key="`logo-${i}-${index}`"
@@ -51,14 +51,13 @@ const scrollContainer = ref(null)
 let interval = null
 
 const startAutoScroll = () => {
-  interval = setInterval(() => {
-    const sc = scrollContainer.value
-    if (!sc) return
+  const sc = scrollContainer.value
+  if (!sc) return
 
-    if (sc.scrollLeft >= sc.scrollWidth / 2) {
+  interval = setInterval(() => {
+    sc.scrollLeft += 1
+    if (sc.scrollLeft >= sc.scrollWidth - sc.clientWidth) {
       sc.scrollLeft = 0
-    } else {
-      sc.scrollLeft += 1
     }
   }, 20)
 }

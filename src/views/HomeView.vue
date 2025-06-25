@@ -82,26 +82,37 @@
   </div>
 
   <!-- SECTION DES OUTILS DEVOPS -->
-  <ToolsScroll />
+  <div class="my-20">
+    <ToolsScroll />
+  </div>
 
   <!-- SECTION DES CATÉGORIES DE COURS -->
-  <CategoriesSection />
+  <div class="my-20">
+    <CategoriesSection />
+  </div>
 
   <!-- SECTION DES MENTORS -->
-  <MentorsSection />
+  <div class="my-20">
+    <MentorsSection />
+  </div>
 
   <!-- SECTION DE CERTIFICATIONS -->
-  <CertificationSection />
+  <div class="my-20">
+    <CertificationSection />
+  </div>
 
   <!-- SECTION DE PARALLAX SROLLER -->
-  <ParallaxScroller />
+  <div class="my-20">
+    <ParallaxScroller />
+  </div>
 
   <!-- SECTION STATISTIQUES -->
-  <StatistiquesSection />
+  <div class="my-20">
+    <StatistiquesSection />
+  </div>
 
   <!-- SECTION FOOTER -->
   <FooterSection />
-
 
 
 

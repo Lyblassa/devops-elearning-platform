@@ -1,7 +1,10 @@
 <template>
-  <router-view />
+  <div class="flex flex-col min-h-screen">
+    <router-view class="flex-grow" />
+    <FooterSection />
+  </div>
 </template>
 
-
-<script setup lang="ts"></script>
-<style scoped></style>
+<script setup lang="ts">
+import FooterSection from './components/FooterSection.vue'
+</script>

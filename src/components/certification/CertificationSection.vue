@@ -17,6 +17,7 @@
           les plus reconnues mondialement
         </h2>
         <button
+          @click="goToCourses"
           class="mt-4 px-6 py-3 bg-white text-black rounded-full text-sm sm:text-base font-semibold hover:bg-gray-200 transition duration-300"
         >
           Explorer les cours →
@@ -52,6 +53,14 @@
 import { onMounted } from 'vue'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import { useRouter } from 'vue-router'
+
+
+const router = useRouter()
+const goToCourses = () => {
+  router.push('/cours')
+}
+
 
 onMounted(() => {
   AOS.init({ once: true })

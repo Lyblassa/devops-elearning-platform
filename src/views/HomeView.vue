@@ -49,7 +49,7 @@
 
       <!-- Explore button -->
       <button
-        @click="scrollToCategories"
+        @click="goToCourses"
         class="bg-gradient-to-b from-white/80 to-white text-black px-8 py-4 rounded-full font-semibold text-base flex items-center gap-3 shadow-lg hover:scale-105 transition"
       >
         Explore courses
@@ -125,7 +125,7 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
-import CategoriesSection from '../components/courses/CategoriesSection.vue'
+import CategoriesSection from '../components/categories/CategoriesSection.vue'
 import ToolsScroll from '../components/tools/ToolsScroll.vue'
 import MentorsSection from '../components/mentors/MentorsSection.vue'
 import CertificationSection from '../components/certification/CertificationSection.vue'
@@ -143,11 +143,10 @@ const goToAuth = () => {
  router.push('/auth')
 }
 
-/*animation scroll cours*/
-const scrollToCategories = () => {
- const section = document.getElementById('categories')
- section?.scrollIntoView({ behavior: 'smooth' })
+const goToCourses = () => {
+  router.push('/cours')
 }
+
 
 </script>
 

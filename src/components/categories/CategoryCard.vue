@@ -3,6 +3,7 @@
     class="relative group category-glow p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md transition-transform duration-300 hover:scale-[1.03]
  animate-fade-slide"
     :style="{ '--glow-color': glowColor }"
+    @click="$emit('click')"
   >
 
   <!-- Flèche qui s'affiche au survol -->

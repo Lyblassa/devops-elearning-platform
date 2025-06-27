@@ -1,39 +1,87 @@
-# elearning
+# E-Learning Platform
 
-This template should help get you started developing with Vue 3 in Vite.
+A modern, responsive e-learning platform built with Vue.js 3, TypeScript, and Tailwind CSS. This application provides a comprehensive learning experience with course management, authentication, and category-based course organization.
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Prerequisites
 
-## Type Support for `.vue` Imports in TS
+Before running this project, make sure you have the following installed:
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- **Node.js** (version 18 or higher)
+- **npm** (comes with Node.js)
+- **Git** (for version control)
 
-## Customize configuration
+## Getting Started
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### 1. Clone the Repository
 
-## Project Setup
+```bash
+git clone <your-repository-url>
+cd become-devops-frontend
+```
 
-```sh
+### 2. Install Dependencies
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 3. Development Server
 
-```sh
+Start the development server with hot reload:
+
+```bash
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+The application will be available at `http://localhost:5173`
 
-```sh
+### 4. Build for Production
+
+```bash
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+The built files will be in the `dist` directory.
 
-```sh
-npm run lint
+### 5. Preview Production Build
+
+```bash
+npm run preview
+```
+
+## Docker Deployment
+
+### Build Docker Image
+
+```bash
+docker build -t elearning-app .
+```
+
+### Run Docker Container
+
+```bash
+docker run -p 3000:80 elearning-app
+```
+
+The application will be available at `http://localhost:3000`
+
+### Docker Compose (Optional)
+
+Create a `docker-compose.yml` file for easier management:
+
+```yaml
+version: '3.8'
+services:
+  elearning:
+    build: .
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+```
+
+Then run:
+
+```bash
+docker-compose up -d
 ```

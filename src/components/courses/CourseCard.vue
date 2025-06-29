@@ -1,5 +1,6 @@
 <template>
-  <div
+  <router-link
+    :to="`/cours/${slugGenere}`"
     class="flex flex-col sm:flex-row bg-white/5 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-md shadow-md transition-transform hover:scale-[1.01]"
   >
     <!-- Image -->
@@ -34,7 +35,7 @@
         </span>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script setup lang="ts">
@@ -60,4 +61,13 @@ const categorie = computed(() =>
 // Nom et couleur dynamique de la catégorie
 const categorieNom = computed(() => categorie.value?.nom ?? 'Unknown')
 const colorCategorie = computed(() => categorie.value?.glowColor ?? '#fff')
+
+// Génère le slug du titre
+const slugGenere = computed(() =>
+  titre.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
+)
+
+
 </script>

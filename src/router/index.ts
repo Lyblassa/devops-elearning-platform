@@ -10,11 +10,19 @@ const router = createRouter({
     { path: '/', name: 'home', component: HomeView },
     { path: '/auth', name: 'auth', component: AuthView },
     { path: '/cours', name: 'all-courses', component: AllCoursesView },
+
+    {
+      path: '/cours/:coursSlug',
+      name: 'cours-details',
+      component: () => import('../views/CoursDetailView.vue')
+    },
+
     {
       path: '/:categorieSlug',
       name: 'category-courses',
       component: CategoryCoursesView,
     },
+
   ],
 })
 export default router

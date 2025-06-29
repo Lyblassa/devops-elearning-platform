@@ -37,7 +37,7 @@ export const categories: Categorie[] = [
     nom: "Docker",
     slug: "docker",
     nbCours: 14,
-    image: "cours4.svg",
+    image: "docker.png",
     glowColor: "#00ccff"
   },
   {
@@ -45,7 +45,7 @@ export const categories: Categorie[] = [
     nom: "Kubernetes",
     slug: "kubernetes",
     nbCours: 9,
-    image: "cours5.svg",
+    image: "kubernetes.png",
     glowColor: "#cc99ff"
   },
   {
@@ -53,7 +53,7 @@ export const categories: Categorie[] = [
     nom: "Terraform",
     slug: "terraform",
     nbCours: 7,
-    image: "cours6.svg",
+    image: "terraform.png",
     glowColor: "#99ffcc"
   },
   {

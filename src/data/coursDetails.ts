@@ -16,7 +16,7 @@ export const coursDetails: CoursDetail[] = [
     id: 1,
     slug: 'maitriser-devops',
     mentor: {
-      nom: 'Jean Dupuis',
+      nom: 'Franklin Foko',
       description: "Expert DevOps avec plus de 10 ans d\'expérience. Jean a dirigé de nombreux projets d\'automatisation dans des entreprises technologiques majeures.",
       image: '/images/mentors/jean.png'
     },

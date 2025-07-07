@@ -1,8 +1,6 @@
 <template>
   <div class="min-h-screen bg-cover bg-center px-4 pt-40 space-y-10" style="background-image: url('/images/planviolet.png')">
-
-
-
+    
     <!-- Logo en haut à gauche -->
     <div class="absolute top-6 left-6 z-50">
       <router-link to="/">

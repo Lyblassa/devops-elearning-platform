@@ -76,4 +76,5 @@ docker stop $CONTAINER_ID
 
 print_status "Build completed successfully!"
 print_status "To run the application: docker-compose up -d"
-print_status "To run manually: docker run -p 8080:8080 become-devops-frontend:latest" 
+print_status "To run manually: docker run -p 8080:8080 become-devops-frontend:latest"
+

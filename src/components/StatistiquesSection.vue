@@ -1,9 +1,9 @@
 <template>
   <section ref="sectionRef" class="w-full bg-black text-white px-4 py-16">
-    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 items-start">
+    <div class="max-w-[90rem] mx-auto flex flex-col lg:flex-row gap-10 items-start bg-white/5 rounded-xl p-6">
       <!-- IMAGE -->
       <div
-        class="w-full lg:w-1/2 flex items-start justify-center"
+        class="w-full lg:w-[55%] flex items-start justify-center sticky top-20 self-start"
         data-aos="zoom-in-up"
         data-aos-easing="ease-in-out"
         data-aos-duration="1200"
@@ -12,12 +12,12 @@
         <img
           src="/images/becomedevops.png"
           alt="Digistar"
-          class="rounded-2xl object-cover w-full h-auto aspect-video lg:h-full lg:aspect-auto object-top"
+          class="rounded-2xl object-cover w-full h-[360px] lg:h-[620px] object-top"
         />
       </div>
 
       <!-- TEXTE + STATS -->
-      <div class="w-full lg:w-1/2 flex flex-col gap-10 justify-start">
+      <div class="w-full lg:w-[45%] flex flex-col gap-6 justify-start">
         <!-- Intro -->
         <div
           class="bg-white/10 backdrop-blur-md rounded-xl p-8"
@@ -25,12 +25,10 @@
           data-aos-delay="200"
           data-aos-duration="900"
         >
-
           <p class="text-white/80 font-questrial text-lg md:text-xl text-center lg:text-left">
-            BecomeDevOps is a center where modern professions such as programming,
-            design and marketing are taught. A place, with the help of modern
-            professions, improving human life and strengthens confidence in the
-            future.
+            BecomeDevOps est un centre où les métiers modernes comme la programmation,
+            le design et le marketing sont enseignés pour améliorer la vie humaine
+            et renforcer la confiance en l'avenir.
           </p>
         </div>
 
@@ -38,15 +36,15 @@
         <div
           v-for="(stat, index) in stats"
           :key="index"
-          class="bg-white/10 backdrop-blur-md rounded-xl p-6"
+          class="bg-white/10 backdrop-blur-md rounded-xl p-6 lg:p-12"
           :data-aos="'fade-left'"
           :data-aos-delay="(index + 2) * 200"
           data-aos-duration="800"
         >
-          <h3 class="text-3xl md:text-5xl font-bold font-satoshi mb-2">
+          <h3 class="text-4xl lg:text-7xl font-bold font-satoshi mb-6 lg:mb-12">
             {{ stat.value }}
           </h3>
-          <p class="text-white/80 font-questrial text-base md:text-lg">
+          <p class="text-white/80 font-questrial text-base md:text-lg lg:text-xl">
             {{ stat.label }}
           </p>
         </div>
@@ -73,8 +71,7 @@ const stats = [
   },
   {
     value: '75.8%',
-    label:
-      'Graduates have found demanding professions and have been building their career.',
+    label: 'Graduates have found demanding professions and have been building their career.',
   },
   {
     value: '24/7',

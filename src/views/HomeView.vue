@@ -1,15 +1,15 @@
 <template>
   <div
-    class="min-h-screen w-full bg-cover bg-center flex flex-col items-center justify-between px-4 pt-6 text-white"
-    :style="{ backgroundImage: `url('/images/planviolet.png')` }"
+    class="min-h-screen w-full bg-cover bg-center text-white"
+    :style="{ backgroundImage: `url('/images/planviolet1.png')` }"
   >
-    <!-- Top bar -->
-    <div class="w-full flex justify-between items-center">
-      <!-- Logo -->
+    <!-- Top bar avec logo absolument positionné -->
+    <div class="relative w-full flex justify-end items-start px-6 pt-6">
+      <!-- Logo en haut à gauche avec espace -->
       <img
-        src="/images/logo2.svg"
+        src="/images/logo3.svg"
         alt="Logo"
-        class="h-16 sm:h-20 md:h-24 lg:h-50 w-auto ml-2"
+        class="absolute top-5 left-6 w-[140px] sm:w-[180px] md:w-[220px] lg:w-[260px] xl:w-[300px] object-contain"
       />
 
       <!-- Connexion / Inscription bouton -->
@@ -21,33 +21,35 @@
       </button>
     </div>
 
-    <!-- Center content -->
+    <!-- Contenu centré (remonté avec mt-0) -->
     <div
-      class="flex flex-col items-center text-center gap-6 max-w-3xl mt-10 animate-fade-in"
+      class="flex flex-col items-center text-center gap-6 max-w-3xl mx-auto mt-20 sm:mt-24 md:mt-28 lg:mt-30 xl:mt-32 animate-fade-in px-4"
     >
-      <!-- Nouveautés Badge avec animation de zoom -->
+      <!-- Badge Nouveautés -->
       <img
         src="/images/nouveautes.svg"
         alt="Nouveautes"
         class="w-auto h-8 md:h-10 animate-zoom-bounce transition duration-300 hover:backdrop-blur-md hover:brightness-125 cursor-pointer"
       />
 
-      <!-- Main Heading -->
+      <!-- Titre principal -->
       <h1
-        class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight animate-zoom-in"
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-center animate-zoom-in"
       >
-        Learn in demand <br />
-        skills online
+        Forme-toi aux<br />
+        compétences les plus demandées
       </h1>
 
-      <!-- Subtitle -->
+
+
+      <!-- Sous-titre -->
       <p
-        class="text-sm sm:text-base md:text-lg font-light font-[\'Questrial\'] text-white/70"
+        class="text-sm sm:text-base md:text-lg font-light font-['Questrial'] text-white/70"
       >
         Premium courses from Premium specialists of Top companies.
       </p>
 
-      <!-- Explore button -->
+      <!-- Bouton Explorer -->
       <button
         @click="goToCourses"
         class="bg-gradient-to-b from-white/80 to-white text-black px-8 py-4 rounded-full font-semibold text-base flex items-center gap-3 shadow-lg hover:scale-105 transition"
@@ -56,8 +58,7 @@
         <span class="text-2xl">&rarr;</span>
       </button>
 
-
-      <!-- Student Avatars and Count -->
+      <!-- Avatars étudiants -->
       <div class="flex flex-col items-center gap-2 mt-6">
         <div class="flex -space-x-3">
           <div

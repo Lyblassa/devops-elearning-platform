@@ -13,12 +13,16 @@
       />
 
       <!-- Connexion / Inscription bouton -->
-      <button
-        @click="goToAuth"
-        class="text-white text-sm bg-white/10 hover:bg-white/20 backdrop-blur-md px-4 py-2 rounded-full transition duration-300"
-      >
-        Connexion / Inscription
-      </button>
+      <transition name="fade">
+        <button
+          v-if="showButton"
+          @click="goToAuth"
+          class="fixed top-6 right-6 z-50 text-white text-sm bg-white/10 hover:bg-white/20 backdrop-blur-md px-4 py-2 rounded-full transition duration-300"
+        >
+          Connexion / Inscription
+        </button>
+      </transition>
+
     </div>
 
     <!-- Contenu centré (remonté avec mt-0) -->
@@ -107,10 +111,19 @@
     <ParallaxScroller />
   </div>
 
+  <!-- SECTION ABONNEMENT -->
+  <div class="my-20">
+    <SubscriptionSection />
+  </div>
+
   <!-- SECTION STATISTIQUES -->
   <div class="my-20">
     <StatistiquesSection />
   </div>
+
+
+
+
 
 
 
@@ -130,6 +143,8 @@ import MentorsSection from '../components/mentors/MentorsSection.vue'
 import CertificationSection from '../components/certification/CertificationSection.vue'
 import ParallaxScroller from '../components/ParallaxScroller.vue'
 import StatistiquesSection from '../components/StatistiquesSection.vue'
+import SubscriptionSection from '../components/subscription/SubscriptionSection.vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 
 
@@ -145,6 +160,22 @@ const goToAuth = () => {
 const goToCourses = () => {
   router.push('/cours')
 }
+
+const showButton = ref(true)
+let lastScroll = 0
+
+const handleScroll = () => {
+  const currentScroll = window.scrollY
+  showButton.value = currentScroll > lastScroll
+  lastScroll = currentScroll
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 
 
 </script>
@@ -226,5 +257,13 @@ const goToCourses = () => {
    transform: translateY(-10px);
  }
 }
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.4s;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+
 
 </style>

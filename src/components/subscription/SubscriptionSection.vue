@@ -7,8 +7,15 @@
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto" data-aos="fade-up" data-aos-duration="1200">
-      <SubscriptionCard
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto"
+      data-aos="fade-up"
+      data-aos-duration="1200"
+      data-aos-offset="800"
+    data-aos-once="true"
+    >
+
+    <SubscriptionCard
         title="Basic"
         :price="10"
         :discounted="true"

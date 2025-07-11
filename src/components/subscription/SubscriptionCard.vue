@@ -36,10 +36,17 @@
       </button>
     </div>
 
-    <!-- Animation bordure fluide -->
+
+    <!-- Animation glow lumineuse fluide -->
     <div
-      class="absolute inset-0 rounded-3xl border-2 border-white/20 animate-border-glow pointer-events-none"
-    ></div>
+      class="absolute inset-0 rounded-3xl pointer-events-none z-0"
+    >
+      <div
+        class="w-full h-full rounded-3xl animate-border-glow"
+        :class="highlight ? 'bg-yellow-500/10' : 'bg-white/10'"
+      ></div>
+    </div>
+
   </div>
 </template>
 
@@ -63,13 +70,16 @@ const parsedFeatures = props.features
 <style scoped>
 @keyframes border-glow {
   0%, 100% {
-    box-shadow: 0 0 10px 2px rgba(255,255,255,0.1);
+    box-shadow: 0 0 20px 4px rgba(255, 255, 255, 0.1);
   }
   50% {
-    box-shadow: 0 0 15px 4px rgba(255,255,255,0.25);
+    box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.3);
   }
 }
+
 .animate-border-glow {
-  animation: border-glow 2s infinite ease-in-out;
+  animation: border-glow 3s infinite ease-in-out;
+  border-radius: 1.5rem; /* correspond à rounded-3xl */
 }
+
 </style>

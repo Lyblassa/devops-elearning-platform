@@ -1,13 +1,5 @@
 <template>
   <div class="min-h-screen bg-cover bg-center px-4 pt-40 space-y-10" style="background-image: url('/images/planviolet.png')">
-    
-    <!-- Logo en haut à gauche -->
-    <div class="absolute top-6 left-6 z-50">
-      <router-link to="/">
-        <img src="/images/logo2.svg" alt="Logo" class="h-24 sm:h-32 md:h-40 w-auto" />
-      </router-link>
-    </div>
-
 
     <CoursesHeader titre="Tous nos cours" />
     <CategoryFilterBar />

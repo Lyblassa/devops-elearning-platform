@@ -3,16 +3,16 @@
     class="min-h-screen w-full bg-cover bg-center text-white"
     :style="{ backgroundImage: `url('/images/planviolet1.png')` }"
   >
-    <!-- Top bar avec logo absolument positionné -->
-    <div class="relative w-full flex justify-end items-start px-6 pt-6">
-      <!-- Logo en haut à gauche avec espace -->
+       <!-- Top bar avec logo absolument positionné -->
+    <!-- <div class="relative w-full flex justify-end items-start px-6 pt-6">
+
       <img
         src="/images/logo3.svg"
         alt="Logo"
         class="absolute top-5 left-6 w-[140px] sm:w-[180px] md:w-[220px] lg:w-[260px] xl:w-[300px] object-contain"
       />
 
-      <!-- Connexion / Inscription bouton -->
+
       <transition name="fade">
         <button
           v-if="showButton"
@@ -23,7 +23,7 @@
         </button>
       </transition>
 
-    </div>
+    </div>-->
 
     <!-- Contenu centré (remonté avec mt-0) -->
     <div
@@ -106,10 +106,10 @@
     <CertificationSection />
   </div>
 
-  <!-- SECTION DE PARALLAX SROLLER -->
+  <!--
   <div class="my-20">
     <ParallaxScroller />
-  </div>
+  </div> -->
 
   <!-- SECTION ABONNEMENT -->
   <div class="my-20">
@@ -141,13 +141,10 @@ import CategoriesSection from '../components/categories/CategoriesSection.vue'
 import ToolsScroll from '../components/tools/ToolsScroll.vue'
 import MentorsSection from '../components/mentors/MentorsSection.vue'
 import CertificationSection from '../components/certification/CertificationSection.vue'
-import ParallaxScroller from '../components/ParallaxScroller.vue'
+/*import ParallaxScroller from '../components/ParallaxScroller.vue'*/
 import StatistiquesSection from '../components/StatistiquesSection.vue'
 import SubscriptionSection from '../components/subscription/SubscriptionSection.vue'
 import { ref, onMounted, onBeforeUnmount } from 'vue'
-
-
-
 
 
 

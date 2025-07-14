@@ -4,13 +4,6 @@
     <div class="relative h-[840px] w-full bg-cover bg-center" style="background-image: url('/images/fondcours.png')">
       <div class="absolute inset-0 bg-cover bg-center opacity-60" style="background-image: url('/images/gradientfond.png')"></div>
 
-      <!-- Logo en haut à gauche -->
-      <div class="absolute top-6 left-6 z-50">
-        <router-link to="/">
-          <img src="/images/logo2.svg" alt="Logo" class="h-24 sm:h-32 md:h-40 w-auto" />
-        </router-link>
-      </div>
-
       <!-- Bouton en haut à droite -->
       <div class="absolute top-8 right-8">
         <router-link

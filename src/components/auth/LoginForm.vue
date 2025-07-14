@@ -22,7 +22,7 @@
     </div>
 
     <!-- Mot de passe -->
-    <div>
+    <!-- <div>
       <label for="password" class="block text-sm font-medium text-gray-300">Mot de passe</label>
       <div class="relative mt-1">
         <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
@@ -49,7 +49,7 @@
           </svg>
         </button>
       </div>
-    </div>
+    </div>-->
 
     <!-- Options -->
     <div class="flex items-center justify-between">
@@ -57,8 +57,14 @@
         <input type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-600 bg-gray-900 rounded mr-2" />
         Se souvenir de moi
       </label>
-      <a href="#" class="text-sm text-blue-400 hover:underline">Mot de passe oublié ?</a>
+      <!-- <a href="#" class="text-sm text-blue-400 hover:underline">Mot de passe oublié ?</a> -->
     </div>
+
+    <!-- Info vérif -->
+    <div class="text-sm text-gray-400">
+      Un lien de vérification vous sera envoyé après la connexion.
+    </div>
+
 
     <!-- Bouton -->
     <div>

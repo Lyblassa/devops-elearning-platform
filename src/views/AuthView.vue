@@ -61,6 +61,34 @@ import { ref } from 'vue'
 import LoginForm from '../components/auth/LoginForm.vue'
 import RegisterForm from '../components/auth/RegisterForm.vue'
 import SocialAuthButtons from '../components/auth/SocialAuthButtons.vue'
+import { onMounted } from 'vue'
+import { isSignInWithEmailLink, signInWithEmailLink } from 'firebase/auth'
+import { auth } from '@/firebase'
 
 const activeTab = ref<'login' | 'register'>('login')
+
+onMounted(async () => {
+  if (isSignInWithEmailLink(auth, window.location.href)) {
+    const email = window.localStorage.getItem('emailForSignIn')
+    if (!email) {
+      alert('Email non trouvé dans le navigateur. Veuillez recommencer.')
+      return
+    }
+
+    try {
+      const result = await signInWithEmailLink(auth, email, window.location.href)
+      const token = await result.user.getIdToken()
+
+      //  Tu enverras maintenant token + infos vers le backend ici (plus tard)
+      console.log('Connecté avec Firebase ! Token :', token)
+      alert('Connexion réussie !')
+
+      // Optionnel : supprimer email du localStorage
+      window.localStorage.removeItem('emailForSignIn')
+    } catch (error) {
+      console.error('Erreur de connexion avec le lien :', error)
+      alert('Le lien est invalide ou expiré.')
+    }
+  }
+})
 </script>

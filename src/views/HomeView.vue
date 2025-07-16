@@ -3,7 +3,7 @@
     class="min-h-screen w-full bg-cover bg-center text-white"
     :style="{ backgroundImage: `url('/images/planviolet1.png')` }"
   >
-       <!-- Top bar avec logo absolument positionné -->
+    <!-- Top bar avec logo absolument positionné -->
     <!-- <div class="relative w-full flex justify-end items-start px-6 pt-6">
 
       <img
@@ -151,7 +151,7 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const router = useRouter()
 const goToAuth = () => {
- router.push('/auth')
+  router.push('/auth')
 }
 
 const goToCourses = () => {
@@ -179,80 +179,80 @@ onBeforeUnmount(() => {
 
 <style scoped>
 @keyframes fade-in {
- 0% {
-   opacity: 0;
-   transform: translateY(10px);
- }
- 100% {
-   opacity: 1;
-   transform: translateY(0);
- }
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes zoom-in {
- 0% {
-   transform: scale(0.95);
-   opacity: 0;
- }
- 100% {
-   transform: scale(1);
-   opacity: 1;
- }
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes zoom-bounce {
- 0% {
-   transform: scale(0.5);
-   opacity: 0;
- }
- 60% {
-   transform: scale(1.1);
-   opacity: 1;
- }
- 100% {
-   transform: scale(1);
- }
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .animate-fade-in {
- animation: fade-in 0.8s ease-out;
+  animation: fade-in 0.8s ease-out;
 }
 
 .animate-zoom-in {
- animation: zoom-in 1s ease-out 0.2s both;
+  animation: zoom-in 1s ease-out 0.2s both;
 }
 
 .animate-zoom-bounce {
- animation: zoom-bounce 1s ease-out 0.3s both;
+  animation: zoom-bounce 1s ease-out 0.3s both;
 }
 
 /*animation anneau*/
 @keyframes appear-breathe {
- 0% {
-   opacity: 0;
-   transform: scale(0.7) translateY(30px);
- }
- 30% {
-   opacity: 1;
-   transform: scale(1.1) translateY(-5px);
- }
- 100% {
-   transform: scale(1) translateY(0);
- }
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(30px);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.1) translateY(-5px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
 }
 
 .animate-appear-breathe {
- animation: appear-breathe 2s ease-out forwards,
- breathe-loop 3s ease-in-out 2s infinite;
+  animation: appear-breathe 2s ease-out forwards,
+  breathe-loop 3s ease-in-out 2s infinite;
 }
 
 @keyframes breathe-loop {
- 0%, 100% {
-   transform: translateY(0);
- }
- 50% {
-   transform: translateY(-10px);
- }
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .fade-enter-active, .fade-leave-active {

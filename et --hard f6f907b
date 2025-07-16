@@ -1,0 +1,22 @@
+[33mf6f907b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdevelop[m[33m)[m HEAD@{0}: reset: moving to HEAD~2
+[33m78712ac[m[33m ([m[1;31mpublic/main[m[33m, [m[1;31morigin/develop[m[33m)[m HEAD@{1}: commit: modif firebase
+[33mc284556[m HEAD@{2}: commit: authentification avec lien magique
+[33mf6f907b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdevelop[m[33m)[m HEAD@{3}: commit: front-end authentification mis a jour
+[33mca204dd[m HEAD@{4}: commit: ajout de la barre de navigation
+[33m915d4f4[m HEAD@{5}: commit: modification design abonnement
+[33m310bc55[m HEAD@{6}: commit: ajout des plans d'abonnement
+[33mc182d2b[m HEAD@{7}: commit: footer modifié
+[33m93cd9a1[m HEAD@{8}: commit: modification designs statistiques et page dacceuil
+[33m31a8eff[m HEAD@{9}: commit: details de cours et boite de paiement + effet parallax
+[33m150f32f[m[33m ([m[1;31mpublic/develop[m[33m)[m HEAD@{10}: commit: rien de particulier
+[33mdae60e4[m HEAD@{11}: commit: details de cours
+[33m7301ff5[m HEAD@{12}: merge mockdevelop: Merge made by the 'ort' strategy.
+[33mabd9b1d[m HEAD@{13}: pull origin develop: Fast-forward
+[33m7680dda[m HEAD@{14}: checkout: moving from mockdevelop to develop
+[33m1648e89[m[33m ([m[1;32mmockdevelop[m[33m)[m HEAD@{15}: commit: mock de develop actuel
+[33m7680dda[m HEAD@{16}: checkout: moving from develop to mockdevelop
+[33m7680dda[m HEAD@{17}: commit: sections cours modifié mieux stylisé
+[33mfebc183[m HEAD@{18}: commit: page de cours debut
+[33m43b3465[m HEAD@{19}: commit: modification footer
+[33m3f74d86[m HEAD@{20}: commit: verification
+[33m795cd35[m HEAD@{21}: clone: from https://github.com/News-Technologies-Services/become-devops-frontend.git

@@ -6,20 +6,30 @@
       class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/30 shadow-sm"
     >
       <nav class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 py-4">
-        <!-- Menu hamburger (mobile uniquement) -->
-        <div class="block sm:hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+        <!-- Menu hamburger (mobile et tablette) -->
+        <div class="block sm:block lg:hidden relative">
+          <button @click="toggleMobileMenu" class="focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+
+          <!-- Menu mobile déroulant gauche -> droite -->
+          <div v-if="mobileMenuOpen" class="absolute left-0 mt-2 w-60 bg-gray-900 border border-gray-700 rounded-md shadow-lg py-2 z-50 animate-slide-in-left">
+            <router-link to="/apprentissage" class="block px-4 py-2 text-sm text-white hover:bg-gray-700">Mon apprentissage</router-link>
+            <div class="border-t border-gray-600 my-2"></div>
+            <div class="px-4 text-white text-sm font-semibold text-center"> {{ username }}</div>
+            <button @click="logout" class="block w-full text-left px-4 py-2 text-sm text-red-400 hover:bg-gray-700">Se déconnecter</button>
+          </div>
         </div>
 
         <!-- Logo -->
         <div class="flex-shrink-0">
           <router-link to="/">
             <img
-            src="/images/logo4.png"
-            alt="Logo"
-            class="w-[130px] md:w-[160px] object-contain"
+              src="/images/logo4.png"
+              alt="Logo"
+              class="w-[130px] md:w-[160px] object-contain"
             />
           </router-link>
         </div>
@@ -48,15 +58,30 @@
             <span class="text-xs text-white/80">Mon apprentissage</span>
           </div>
 
-          <!-- Connexion / Bonjour -->
-          <router-link to="/auth" class="flex flex-col items-center cursor-pointer">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A9.001 9.001 0 0112 15a9.001 9.001 0 016.879 2.804M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            <span class="text-xs text-white/80">
-              {{ isLoggedIn ? 'Bonjour ' + username : 'Se connecter' }}
-            </span>
-          </router-link>
+          <!-- Profil utilisateur -->
+          <div class="relative group  sm:flex">
+            <div class="flex flex-col items-center cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A9.001 9.001 0 0112 15a9.001 9.001 0 016.879 2.804M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span class="text-xs text-white/80">
+                {{ isLoggedIn ? 'Bonjour ' + username : 'Se connecter' }}
+              </span>
+            </div>
+
+            <!-- Sous-menu stylé -->
+            <div
+              v-if="isLoggedIn"
+              class="absolute right-0 mt-2 w-44 bg-gray-900 border border-gray-700 rounded-md shadow-lg py-2 z-50 hidden group-hover:block"
+            >
+              <router-link to="/profile" class="block px-4 py-2 text-sm text-white hover:bg-gray-700">Mon profil</router-link>
+              <button @click="logout" class="w-full text-left px-4 py-2 text-sm text-red-400 hover:bg-gray-700">Se déconnecter</button>
+            </div>
+
+            <router-link v-else to="/auth" class="absolute right-0 mt-2 w-44 bg-gray-900 border border-gray-700 rounded-md shadow-lg py-2 z-50 hidden group-hover:block">
+              <div class="px-4 py-2 text-sm text-white hover:bg-gray-700">Se connecter</div>
+            </router-link>
+          </div>
         </div>
       </nav>
     </header>
@@ -65,16 +90,28 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
+
 
 const showNav = ref(true)
 let lastScroll = 0
-const isLoggedIn = ref(false)
-const username = ref('Coco')
+const isLoggedIn = ref(true)
+const username = ref('')
+const mobileMenuOpen = ref(false)
 
 const handleScroll = () => {
   const currentScroll = window.scrollY
   showNav.value = currentScroll < lastScroll || currentScroll < 10
   lastScroll = currentScroll
+}
+
+const toggleMobileMenu = () => {
+  mobileMenuOpen.value = !mobileMenuOpen.value
+}
+
+const logout = () => {
+  isLoggedIn.value = false
+  mobileMenuOpen.value = false
 }
 
 onMounted(() => {
@@ -83,6 +120,23 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll)
 })
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+
+  const auth = getAuth()
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      isLoggedIn.value = true
+      // Prend la partie avant le @ dans l'email
+      username.value = user.email?.split('@')[0] || 'Utilisateur'
+    } else {
+      isLoggedIn.value = false
+      username.value = ''
+    }
+  })
+})
+
 </script>
 
 <style scoped>
@@ -92,5 +146,19 @@ onBeforeUnmount(() => {
 .slide-fade-enter-from, .slide-fade-leave-to {
   opacity: 0;
   transform: translateY(-100%);
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.animate-slide-in-left {
+  animation: slide-in-left 0.3s ease-out;
 }
 </style>

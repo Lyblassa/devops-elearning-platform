@@ -76,21 +76,30 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { reactive } from 'vue'
+import { sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink } from 'firebase/auth'
+import { auth } from '@/firebase'
 
-interface LoginForm {
-  email: string
-  password: string
-}
-
-const form = reactive<LoginForm>({
-  email: '',
-  password: ''
+const form = reactive({
+  email: ''
 })
 
-const showPassword = ref(false)
-
-const onSubmit = () => {
-  console.log('Connexion envoyée :', form)
+// Config pour le lien magique
+const actionCodeSettings = {
+  url: 'http://localhost:5173/auth', // ← remplace par ton domaine final plus tard
+  handleCodeInApp: true
 }
+
+const onSubmit = async () => {
+  try {
+    await sendSignInLinkToEmail(auth, form.email, actionCodeSettings)
+    // Stocke l'email dans le localStorage pour plus tard
+    window.localStorage.setItem('emailForSignIn', form.email)
+    alert('Un lien de connexion a été envoyé à votre email.')
+  } catch (error) {
+    console.error('Erreur d’envoi du lien magique :', error)
+    alert('Erreur lors de l’envoi. Vérifiez l’email.')
+  }
+}
+
 </script>

@@ -71,6 +71,8 @@
 import { reactive } from 'vue'
 import { sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink } from 'firebase/auth'
 import { auth } from '@/firebase'
+import { FRONTEND_URL } from '@/utils/config'
+
 
 const form = reactive({
   username: '',
@@ -79,7 +81,7 @@ const form = reactive({
 
 // Config pour le lien magique
 const actionCodeSettings = {
-  url: 'http://localhost:5173/auth', // ← remplace par ton domaine final plus tard
+  url: `${FRONTEND_URL}/auth`, // ← remplace par ton domaine final plus tard
   handleCodeInApp: true
 }
 
@@ -88,6 +90,7 @@ const onSubmit = async () => {
     await sendSignInLinkToEmail(auth, form.email, actionCodeSettings)
     // Stocke l'email dans le localStorage pour plus tard
     window.localStorage.setItem('emailForSignIn', form.email)
+    window.localStorage.setItem('pendingUsername', form.username)
     alert('Un lien de connexion a été envoyé à votre email.')
   } catch (error) {
     console.error('Erreur d’envoi du lien magique :', error)

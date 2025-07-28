@@ -64,12 +64,15 @@ import SocialAuthButtons from '../components/auth/SocialAuthButtons.vue'
 import { onMounted } from 'vue'
 import { isSignInWithEmailLink, signInWithEmailLink } from 'firebase/auth'
 import { auth } from '@/firebase'
+import { API_URL } from '../utils/config'
+
 
 const activeTab = ref<'login' | 'register'>('login')
 
 onMounted(async () => {
   if (isSignInWithEmailLink(auth, window.location.href)) {
     const email = window.localStorage.getItem('emailForSignIn')
+    const username = window.localStorage.getItem('pendingUsername')
     if (!email) {
       alert('Email non trouvé dans le navigateur. Veuillez recommencer.')
       return
@@ -79,16 +82,27 @@ onMounted(async () => {
       const result = await signInWithEmailLink(auth, email, window.location.href)
       const token = await result.user.getIdToken()
 
-      //  Tu enverras maintenant token + infos vers le backend ici (plus tard)
-      console.log('Connecté avec Firebase ! Token :', token)
-      alert('Connexion réussie !')
+      //  envoi au backend
+      const response = await fetch(`${API_URL}/api/auth/firebase-login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ idToken: token, username })
+      })
 
-      // Optionnel : supprimer email du localStorage
+      const data = await response.json()
+      console.log("Réponse backend :", data)
+      alert(`Bienvenue ${data.nom} !`)
+
+      // Nettoyage
       window.localStorage.removeItem('emailForSignIn')
+      window.localStorage.removeItem('pendingUsername') // ← à ajouter ici !
     } catch (error) {
       console.error('Erreur de connexion avec le lien :', error)
       alert('Le lien est invalide ou expiré.')
     }
   }
 })
+
 </script>

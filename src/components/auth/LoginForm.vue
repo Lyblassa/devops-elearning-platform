@@ -79,6 +79,8 @@
 import { reactive } from 'vue'
 import { sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink } from 'firebase/auth'
 import { auth } from '@/firebase'
+import { FRONTEND_URL } from '@/utils/config'
+
 
 const form = reactive({
   email: ''
@@ -86,7 +88,7 @@ const form = reactive({
 
 // Config pour le lien magique
 const actionCodeSettings = {
-  url: 'http://localhost:5173/auth', // ← remplace par ton domaine final plus tard
+  url: `${FRONTEND_URL}/auth`,
   handleCodeInApp: true
 }
 
